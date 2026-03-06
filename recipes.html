@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Recipes - CookLearn</title>
+    <meta name="description" content="Free beginner-friendly recipes with cooking technique tips.">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; background: #f5f5f5; }
+        .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        header { background: #fff; box-shadow: 0 2px 10px rgba(0,0,0,0.1); padding: 15px 0; position: fixed; width: 100%; top: 0; z-index: 100; }
+        header .container { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 24px; font-weight: bold; color: #E58325; text-decoration: none; }
+        .nav a { color: #333; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        .hero { background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%); color: #fff; padding: 100px 0 60px; text-align: center; }
+        .hero h1 { font-size: 36px; margin-bottom: 15px; }
+        .hero p { font-size: 18px; opacity: 0.9; }
+        .recipes { padding: 60px 0; }
+        .recipes h2 { text-align: center; font-size: 32px; margin-bottom: 40px; }
+        .recipe-card { background: #fff; border-radius: 15px; overflow: hidden; margin-bottom: 30px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); }
+        .recipe-header { background: #E58325; color: #fff; padding: 20px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; }
+        .recipe-header h3 { font-size: 22px; }
+        .recipe-header .meta { font-size: 14px; opacity: 0.9; }
+        .recipe-content { padding: 25px; display: none; }
+        .recipe-content.show { display: block; }
+        .recipe-content h4 { color: #E58325; margin: 20px 0 10px; font-size: 18px; }
+        .recipe-content ul { margin-left: 20px; }
+        .recipe-content li { margin-bottom: 8px; }
+        .technique-tip { background: #FFF3E0; border-left: 4px solid #E58325; padding: 15px; margin: 20px 0; border-radius: 0 10px 10px 0; }
+        .technique-tip h5 { color: #E58325; margin-bottom: 8px; font-size: 16px; }
+        .toggle-btn { background: none; border: none; color: #fff; font-size: 24px; cursor: pointer; }
+        footer { background: #333; color: #fff; padding: 25px 0; text-align: center; margin-top: 40px; }
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 28px; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">🍳 CookLearn</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="premium.html">Premium Plans</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Free Beginner Recipes</h1>
+            <p>Learn to cook with our simple recipes. Every recipe includes technique tips!</p>
+        </div>
+    </section>
+
+    <section class="recipes">
+        <div class="container">
+            <h2>Start Cooking Today</h2>
+
+            <!-- Recipe 1 -->
+            <div class="recipe-card">
+                <div class="recipe-header" onclick="toggleRecipe(1)">
+                    <div>
+                        <h3>🍗 Classic Chicken Stir-Fry</h3>
+                        <div class="meta">Prep: 15 mins | Cook: 15 mins | Serves: 4</div>
+                    </div>
+                    <button class="toggle-btn">+</button>
+                </div>
+                <div class="recipe-content" id="recipe1">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <li>500g chicken breast, sliced</li>
+                        <li>2 tbsp soy sauce</li>
+                        <li>1 tbsp sesame oil</li>
+                        <li>2 cups mixed vegetables (bell peppers, broccoli, carrots)</li>
+                        <li>3 cloves garlic, minced</li>
+                        <li>1 tbsp ginger, grated</li>
+                        <li>2 tbsp vegetable oil</li>
+                        <li>Salt and pepper to taste</li>
+                    </ul>
+                    <h4>Instructions</h4>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>Marinate chicken:</strong> Mix chicken with soy sauce, sesame oil, salt, and pepper. Let sit for 10 minutes.</li>
+                        <li><strong>Heat wok:</strong> Add vegetable oil to a wok over high heat until smoking.</li>
+                        <li><strong>Cook chicken:</strong> Add chicken in single layer. Sear for 2 minutes until golden. Remove and set aside.</li>
+                        <li><strong>Cook vegetables:</strong> Add garlic and ginger, stir for 30 seconds. Add vegetables, stir-fry for 3-4 minutes.</li>
+                        <li><strong>Combine:</strong> Return chicken to wok. Toss everything together.</li>
+                        <li><strong>Serve:</strong> Enjoy hot over steamed rice!</li>
+                    </ol>
+                    <div class="technique-tip">
+                        <h5>🔪 Technique Tip: High Heat is Key!</h5>
+                        <p>The Maillard reaction (browning) only happens above 280°F (140°C). This creates that restaurant-style sear and nutty flavor. Don't crowd the pan!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 2 -->
+            <div class="recipe-card">
+                <div class="recipe-header" onclick="toggleRecipe(2)">
+                    <div>
+                        <h3>🍝 Creamy Garlic Pasta</h3>
+                        <div class="meta">Prep: 10 mins | Cook: 20 mins | Serves: 4</div>
+                    </div>
+                    <button class="toggle-btn">+</button>
+                </div>
+                <div class="recipe-content" id="recipe2">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <li>400g pasta (penne or fettuccine)</li>
+                        <li>4 cloves garlic, minced</li>
+                        <li>1 cup heavy cream</li>
+                        <li>1/2 cup parmesan cheese, grated</li>
+                        <li>2 tbsp butter</li>
+                        <li>Fresh parsley, chopped</li>
+                        <li>Salt and pepper to taste</li>
+                    </ul>
+                    <h4>Instructions</h4>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>Boil pasta:</strong> Cook pasta in salted boiling water until al dente. Reserve 1 cup pasta water.</li>
+                        <li><strong>Sauté garlic:</strong> Melt butter in a pan. Add garlic, cook until fragrant (1 minute). Don't let it brown!</li>
+                        <li><strong>Add cream:</strong> Pour in heavy cream. Simmer for 2-3 minutes until slightly thickened.</li>
+                        <li><strong>Add cheese:</strong> Remove from heat. Stir in parmesan until melted and smooth.</li>
+                        <li><strong>Combine:</strong> Add pasta to the sauce. Toss well, adding pasta water if needed.</li>
+                        <li><strong>Finish:</strong> Top with parsley and serve!</li>
+                    </ol>
+                    <div class="technique-tip">
+                        <h5>🔪 Technique Tip: Cheese Needs Low Heat!</h5>
+                        <p>Never add cheese to a hot pan! The fat in cheese will separate and become grainy if heated too quickly. Always remove from heat before adding parmesan.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 3 -->
+            <div class="recipe-card">
+                <div class="recipe-header" onclick="toggleRecipe(3)">
+                    <div>
+                        <h3>🥞 Perfect Fluffy Pancakes</h3>
+                        <div class="meta">Prep: 5 mins | Cook: 15 mins | Serves: 8</div>
+                    </div>
+                    <button class="toggle-btn">+</button>
+                </div>
+                <div class="recipe-content" id="recipe3">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <li>2 cups all-purpose flour</li>
+                        <li>2 tbsp sugar</li>
+                        <li>2 tsp baking powder</li>
+                        <li>1 tsp baking soda</li>
+                        <li>1/2 tsp salt</li>
+                        <li>2 cups buttermilk</li>
+                        <li>2 eggs</li>
+                        <li>4 tbsp melted butter</li>
+                        <li>1 tsp vanilla extract</li>
+                    </ul>
+                    <h4>Instructions</h4>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>Mix dry:</strong> Whisk flour, sugar, baking powder, baking soda, and salt in a large bowl.</li>
+                        <li><strong>Mix wet:</strong> In another bowl, whisk buttermilk, eggs, melted butter, and vanilla.</li>
+                        <li><strong>Combine:</strong> Pour wet ingredients into dry. Mix until JUST combined. Lumps are okay!</li>
+                        <li><strong>Rest:</strong> Let batter rest for 5 minutes.</li>
+                        <li><strong>Cook:</strong> Heat a non-stick pan over medium heat. Add 1/4 cup batter.</li>
+                        <li><strong>Flip:</strong> Cook until bubbles form on surface (2 mins). Flip and cook 1 more minute.</li>
+                        <li><strong>Serve:</strong> Stack with butter and maple syrup!</li>
+                    </ol>
+                    <div class="technique-tip">
+                        <h5>🔪 Technique Tip: Don't Overmix!</h5>
+                        <p>Overmixing develops gluten, making pancakes tough. Mix until just combined - lumps actually make fluffier pancakes!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 4 -->
+            <div class="recipe-card">
+                <div class="recipe-header" onclick="toggleRecipe(4)">
+                    <div>
+                        <h3>🍅 Simple Tomato Pasta Sauce</h3>
+                        <div class="meta">Prep: 5 mins | Cook: 25 mins | Serves: 6</div>
+                    </div>
+                    <button class="toggle-btn">+</button>
+                </div>
+                <div class="recipe-content" id="recipe4">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <li>800g canned crushed tomatoes</li>
+                        <li>4 cloves garlic, minced</li>
+                        <li>1/4 cup olive oil</li>
+                        <li>1 tsp dried oregano</li>
+                        <li>1 tsp dried basil</li>
+                        <li>1/2 tsp red chili flakes</li>
+                        <li>Salt and pepper to taste</li>
+                        <li>Fresh basil for garnish</li>
+                    </ul>
+                    <h4>Instructions</h4>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>Infuse oil:</strong> Heat olive oil in a pan. Add garlic and chili flakes. Cook until fragrant (1 minute). Don't burn!</li>
+                        <li><strong>Add tomatoes:</strong> Pour in crushed tomatoes. Add oregano, basil, salt, and pepper.</li>
+                        <li><strong>Simmer:</strong> Reduce heat to low. Let simmer for 20-25 minutes, stirring occasionally.</li>
+                        <li><strong>Taste:</strong> Adjust seasoning. The sauce should be thick enough to coat a spoon.</li>
+                        <li><strong>Serve:</strong> Toss with your favorite pasta. Top with fresh basil!</li>
+                    </ol>
+                    <div class="technique-tip">
+                        <h5>🔪 Technique Tip: Low and Slow!</h5>
+                        <p>Tomato sauce develops complex flavors when simmered gently. High heat makes tomatoes taste acidic and bitter. Patience = better flavor!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 5 -->
+            <div class="recipe-card">
+                <div class="recipe-header" onclick="toggleRecipe(5)">
+                    <div>
+                        <h3>🍚 Quick Vegetable Fried Rice</h3>
+                        <div class="meta">Prep: 10 mins | Cook: 10 mins | Serves: 4</div>
+                    </div>
+                    <button class="toggle-btn">+</button>
+                </div>
+                <div class="recipe-content" id="recipe5">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <li>3 cups day-old cooked rice (cold is best!)</li>
+                        <li>2 eggs, beaten</li>
+                        <li>1 cup mixed vegetables (peas, carrots, corn)</li>
+                        <li>3 tbsp soy sauce</li>
+                        <li>1 tbsp sesame oil</li>
+                        <li>2 green onions, sliced</li>
+                        <li>2 tbsp vegetable oil</li>
+                    </ul>
+                    <h4>Instructions</h4>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>Heat wok:</strong> Add oil to wok over high heat until smoking.</li>
+                        <li><strong>Scramble eggs:</strong> Pour in beaten eggs. Stir quickly until just set. Remove and set aside.</li>
+                        <li><strong>Cook vegetables:</strong> Add more oil if needed. Stir-fry vegetables for 2 minutes.</li>
+                        <li><strong>Add rice:</strong> Break up any clumps. Add cold rice (cold rice fries better!).</li>
+                        <li><strong>Season:</strong> Drizzle soy sauce around the edges of the wok. Toss to combine.</li>
+                        <li><strong>Finish:</strong> Add eggs back. Drizzle sesame oil. Top with green onions.</li>
+                    </ol>
+                    <div class="technique-tip">
+                        <h5>🔪 Technique Tip: Use Cold Rice!</h5>
+                        <p>Freshly cooked rice has too much moisture and will become mushy. Cold rice grains are dry and separate nicely when fried. Make rice a day ahead!</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recipe 6 -->
+            <div class="recipe-card">
+                <div class="recipe-header" onclick="toggleRecipe(6)">
+                    <div>
+                        <h3>🍛 Easy Chicken Curry</h3>
+                        <div class="meta">Prep: 15 mins | Cook: 30 mins | Serves: 4</div>
+                    </div>
+                    <button class="toggle-btn">+</button>
+                </div>
+                <div class="recipe-content" id="recipe6">
+                    <h4>Ingredients</h4>
+                    <ul>
+                        <li>600g chicken thighs, cubed</li>
+                        <li>1 onion, diced</li>
+                        <li>3 tomatoes, chopped</li>
+                        <li>2 tbsp curry powder</li>
+                        <li>1 tsp turmeric</li>
+                        <li>1 tsp cumin</li>
+                        <li>1 tsp coriander</li>
+                        <li>1 cup coconut milk</li>
+                        <li>2 tbsp vegetable oil</li>
+                        <li>Salt to taste</li>
+                        <li>Fresh cilantro for garnish</li>
+                    </ul>
+                    <h4>Instructions</h4>
+                    <ol style="margin-left: 20px;">
+                        <li><strong>Brown chicken:</strong> Heat oil in a pot. Season chicken with salt. Brown on all sides. Remove and set aside.</li>
+                        <li><strong>Cook onions:</strong> In the same pot, add onions. Cook until soft and golden (5 mins).</li>
+                        <li><strong>Toast spices:</strong> Add curry powder, turmeric, cumin, and coriander. Stir for 1 minute until fragrant.</li>
+                        <li><strong>Add tomatoes:</strong> Add tomatoes. Cook until they break down (5 mins).</li>
+                        <li><strong>Add chicken:</strong> Return chicken to pot. Pour in coconut milk.</li>
+                        <li><strong>Simmer:</strong> Cover and simmer for 20 minutes until chicken is cooked through.</li>
+                        <li><strong>Serve:</strong> Garnish with cilantro. Enjoy with rice or naan!</li>
+                    </ol>
+                    <div class="technique-tip">
+                        <h5>🔪 Technique Tip: Toast Your Spices!</h5>
+                        <p>Dry roasting spices in hot oil releases their oils and intensifies flavor. This simple step makes a huge difference in curry depth!</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CookLearn. All rights reserved.</p>
+            <p style="margin-top: 10px; font-size: 14px; opacity: 0.7;">Start cooking today!</p>
+        </div>
+    </footer>
+
+    <script>
+        function toggleRecipe(num) {
+            const content = document.getElementById('recipe' + num);
+            const btn = content.previousElementSibling.querySelector('.toggle-btn');
+            
+            if (content.classList.contains('show')) {
+                content.classList.remove('show');
+                btn.textContent = '+';
+            } else {
+                content.classList.add('show');
+                btn.textContent = '−';
+            }
+        }
+    </script>
+</body>
+</html>
