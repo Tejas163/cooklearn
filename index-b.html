@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CookLearn AI - Smart Meal Planning (Variant B)</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; line-height: 1.6; color: #333; }
+        .hero { background: linear-gradient(135deg, #43A047 0%, #2E7D32 100%); color: #fff; padding: 150px 0 100px; text-align: center; }
+        .hero h1 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; margin-bottom: 30px; opacity: 0.9; }
+        .btn { display: inline-block; padding: 15px 40px; background: #43A047; color: #fff; text-decoration: none; border-radius: 50px; font-weight: bold; transition: transform 0.3s; }
+        .btn:hover { transform: translateY(-3px); }
+        .features { padding: 80px 0; background: #f9f9f9; }
+        .features h2 { text-align: center; font-size: 36px; margin-bottom: 50px; }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+        .feature-card { background: #fff; padding: 30px; border-radius: 15px; box-shadow: 0 5px 20px rgba(0,0,0,0.1); text-align: center; }
+        .feature-icon { font-size: 48px; margin-bottom: 20px; }
+    </style>
+</head>
+<body>
+    <section class="hero">
+        <h1>Save Time & Money on Meals</h1>
+        <p>Smart meal planning that reduces grocery waste by 30%. Start saving today!</p>
+        <a href="#pricing" class="btn">Start Saving Now</a>
+    </section>
+    <section class="features">
+        <h2>Why Choose CookLearn AI?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">💰</div>
+                <h3>Save Money</h3>
+                <p>Reduce grocery waste and plan meals around sales to save up to 30%.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⏰</div>
+                <h3>Save Time</h3>
+                <p>Weekly meal plans in minutes. No more "what's for dinner" stress.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🥗</div>
+                <h3>Eat Healthier</h3>
+                <p>Balanced meals planned for you. Nutritional goals made easy.</p>
+            </div>
+        </div>
+    </section>
+    <section id="pricing" style="padding: 80px 0; text-align: center;">
+        <h2 style="font-size: 36px; margin-bottom: 40px;">Simple Pricing</h2>
+        <div style="max-width: 400px; margin: 0 auto; padding: 40px; border: 2px solid #43A047; border-radius: 20px;">
+            <h3 style="font-size: 24px; margin-bottom: 15px;">Premium</h3>
+            <div style="font-size: 48px; font-weight: bold; color: #43A047; margin-bottom: 20px;">$9.99<span style="font-size: 16px;">/month</span></div>
+            <ul style="list-style: none; text-align: left; margin-bottom: 30px;">
+                <li style="padding: 10px 0;">✓ Unlimited meal plans</li>
+                <li style="padding: 10px 0;">✓ 500+ recipes</li>
+                <li style="padding: 10px 0;">✓ Smart grocery lists</li>
+                <li style="padding: 10px 0;">✓ Priority support</li>
+            </ul>
+            <a href="premium.html" class="btn">Get Started</a>
+        </div>
+    </section>
+    <script>
+        // Track variant B views
+        localStorage.setItem('ab_variant', 'B');
+    </script>
+</body>
+</html>
