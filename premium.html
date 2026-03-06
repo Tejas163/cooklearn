@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Meal Plans - CookLearn AI</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 20px 0;
+        }
+        header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #E58325;
+            text-decoration: none;
+        }
+        .nav a {
+            color: #333;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+        .hero {
+            background: linear-gradient(135deg, #E58325 0%, #f5a623 100%);
+            color: #fff;
+            padding: 80px 0;
+            text-align: center;
+        }
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+        }
+        .hero p {
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        .packages {
+            padding: 60px 0;
+        }
+        .packages h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .packages .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+        }
+        .packages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .package-card {
+            background: #fff;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        .package-card:hover {
+            transform: translateY(-5px);
+        }
+        .package-header {
+            background: #667eea;
+            color: #fff;
+            padding: 25px;
+            text-align: center;
+        }
+        .package-card:nth-child(2) .package-header {
+            background: #E58325;
+        }
+        .package-card:nth-child(3) .package-header {
+            background: #764ba2;
+        }
+        .package-header h3 {
+            font-size: 24px;
+            margin-bottom: 5px;
+        }
+        .package-header .duration {
+            opacity: 0.9;
+        }
+        .package-body {
+            padding: 30px;
+        }
+        .price {
+            text-align: center;
+            font-size: 42px;
+            font-weight: bold;
+            color: #E58325;
+            margin-bottom: 20px;
+        }
+        .price span {
+            font-size: 16px;
+            color: #666;
+            font-weight: normal;
+        }
+        .features-list {
+            list-style: none;
+            margin-bottom: 25px;
+        }
+        .features-list li {
+            padding: 10px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .features-list li:before {
+            content: "✓";
+            color: #43A047;
+            margin-right: 10px;
+        }
+        .btn {
+            display: block;
+            padding: 15px;
+            background: #E58325;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn:hover {
+            background: #d4721f;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid #E58325;
+            color: #E58325;
+        }
+        .custom-section {
+            background: #fff;
+            padding: 60px 0;
+            margin: 40px 0;
+        }
+        .custom-section h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .custom-section .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 40px;
+        }
+        .custom-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+        }
+        .custom-card {
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .custom-card h4 {
+            font-size: 20px;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        .custom-card p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+        .custom-card .price-tag {
+            font-size: 24px;
+            font-weight: bold;
+            color: #E58325;
+        }
+        .faq {
+            padding: 60px 0;
+        }
+        .faq h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 40px;
+        }
+        .faq-grid {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            background: #fff;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .faq-item h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #667eea;
+        }
+        .contact {
+            background: #667eea;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .contact h2 {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .contact p {
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+        .email {
+            font-size: 20px;
+            font-weight: bold;
+            color: #fff;
+        }
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 30px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index.html" class="logo">🍳 CookLearn AI</a>
+            <nav class="nav">
+                <a href="index.html">Home</a>
+                <a href="index.html#pricing">Pricing</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>Premium Meal Plans</h1>
+            <p>Professionally designed meal plans with step-by-step guidance</p>
+        </div>
+    </section>
+
+    <section class="packages">
+        <div class="container">
+            <h2>Choose Your Plan</h2>
+            <p class="subtitle">Ready-to-use meal plans delivered to your inbox</p>
+            
+            <div class="packages-grid">
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Starter</h3>
+                        <div class="duration">1 Week Plan</div>
+                    </div>
+                    <div class="package-body">
+                        <div class="price">$9.99</div>
+                        <ul class="features-list">
+                            <li>7 complete meals</li>
+                            <li>Shopping list included</li>
+                            <li>Basic cooking tips</li>
+                            <li>PDF format</li>
+                            <li>Email delivery</li>
+                        </ul>
+                        <a href="#" class="btn" onclick="alert('Payment integration coming soon! Email us to purchase.')">Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Popular</h3>
+                        <div class="duration">4 Week Plan</div>
+                    </div>
+                    <div class="package-body">
+                        <div class="price">$29.99</div>
+                        <ul class="features-list">
+                            <li>28 complete meals</li>
+                            <li>Weekly shopping lists</li>
+                            <li>Detailed technique guides</li>
+                            <li>Video tutorials included</li>
+                            <li>Priority email support</li>
+                            <li>Save 25%</li>
+                        </ul>
+                        <a href="#" class="btn" onclick="alert('Payment integration coming soon! Email us to purchase.')">Buy Now</a>
+                    </div>
+                </div>
+
+                <div class="package-card">
+                    <div class="package-header">
+                        <h3>Complete</h3>
+                        <div class="duration">12 Week Plan</div>
+                    </div>
+                    <div class="package-body">
+                        <div class="price">$79.99</div>
+                        <ul class="features-list">
+                            <li>84 complete meals</li>
+                            <li>Full recipe collection</li>
+                            <li>Advanced technique series</li>
+                            <li>Bonus: Cooking shortcuts guide</li>
+                            <li>Direct chat support</li>
+                            <li>Save 33%</li>
+                        </ul>
+                        <a href="#" class="btn" onclick="alert('Payment integration coming soon! Email us to purchase.')">Buy Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="custom-section">
+        <div class="container">
+            <h2>Custom Services</h2>
+            <p class="subtitle">Need something personalized? We got you.</p>
+            
+            <div class="custom-grid">
+                <div class="custom-card">
+                    <h4>Custom Meal Plan</h4>
+                    <p>Tailored to your dietary needs, preferences, and budget</p>
+                    <div class="price-tag">From $49</div>
+                </div>
+                <div class="custom-card">
+                    <h4>Recipe Development</h4>
+                    <p>Custom recipes based on ingredients you have</p>
+                    <div class="price-tag">From $19</div>
+                </div>
+                <div class="custom-card">
+                    <h4>Cooking Lessons</h4>
+                    <p>1-on-1 video call to learn specific techniques</p>
+                    <div class="price-tag">$30/hour</div>
+                </div>
+                <div class="custom-card">
+                    <h4>Kitchen Setup</h4>
+                    <p>Optimize your kitchen for efficiency</p>
+                    <div class="price-tag">$49</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>How do I receive my meal plan?</h4>
+                    <p>After purchase, we'll email you a PDF with the meal plan, recipes, and shopping list within 24 hours.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Can I get a refund?</h4>
+                    <p>Yes! If you're not satisfied, email us within 7 days for a full refund.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>Are the meal plans customizable?</h4>
+                    <p>Absolutely! Just mention your dietary restrictions, allergies, or preferences when you order.</p>
+                </div>
+                <div class="faq-item">
+                    <h4>How long do the plans take?</h4>
+                    <p>Each meal takes 20-45 minutes to prepare, depending on your skill level.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact">
+        <div class="container">
+            <h2>Questions? Want to Order?</h2>
+            <p>Email us directly to purchase or ask questions</p>
+            <a href="mailto:orders@cooklearn.ai" class="email">orders@cooklearn.ai</a>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 CookLearn AI. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
