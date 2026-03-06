@@ -75,7 +75,7 @@ python -m http.server 8080
 
 ### Step 2: Update Contact Email
 Edit `premium.html` and replace:
-- `orders@cooklearn.ai` with your actual email
+- `tejaskrshna@gmail.com` with your actual email
 
 ### Step 3: Launch
 1. Deploy landing page (Netlify/Vercel - Free)
