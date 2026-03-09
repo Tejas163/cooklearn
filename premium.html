@@ -192,6 +192,96 @@
             font-weight: bold;
             color: #E58325;
         }
+        
+        /* UPI Payment Section */
+        .upi-payment {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            padding: 60px 0;
+        }
+        .upi-payment h2 {
+            text-align: center;
+            font-size: 32px;
+            margin-bottom: 10px;
+        }
+        .upi-subtitle {
+            text-align: center;
+            opacity: 0.9;
+            margin-bottom: 40px;
+        }
+        .upi-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            max-width: 900px;
+            margin: 0 auto;
+            align-items: center;
+        }
+        .upi-qr-section {
+            text-align: center;
+        }
+        .upi-qr-box {
+            background: #fff;
+            padding: 30px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        .upi-qr {
+            width: 200px;
+            height: 200px;
+        }
+        .upi-amount {
+            color: #333;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+        }
+        .upi-instructions {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+        }
+        .upi-instructions h3 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        .upi-instructions ol {
+            margin-left: 20px;
+            margin-bottom: 25px;
+        }
+        .upi-instructions li {
+            margin-bottom: 10px;
+        }
+        .upi-alternative {
+            background: rgba(255,255,255,0.15);
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .upi-alternative h4 {
+            margin-bottom: 10px;
+        }
+        .upi-id {
+            font-size: 18px;
+            font-weight: bold;
+            background: #fff;
+            color: #333;
+            padding: 10px 20px;
+            border-radius: 8px;
+            display: inline-block;
+            margin-bottom: 10px;
+        }
+        .upi-note {
+            font-size: 14px;
+            opacity: 0.9;
+        }
+        
+        @media (max-width: 768px) {
+            .upi-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
         .faq {
             padding: 60px 0;
         }
@@ -352,6 +442,41 @@
                     <h4>Kitchen Setup</h4>
                     <p>Optimize your kitchen for efficiency</p>
                     <div class="price-tag">$49</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- UPI Payment Section -->
+    <section class="upi-payment">
+        <div class="container">
+            <h2>Pay Directly with UPI</h2>
+            <p class="upi-subtitle">Scan the QR code below to pay instantly via UPI, Google Pay, PhonePe, or Paytm</p>
+            
+            <div class="upi-grid">
+                <div class="upi-qr-section">
+                    <div class="upi-qr-box">
+                        <!-- Replace with your actual UPI QR code image -->
+                        <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=upi://pay?pa=demo@upi&pn=CookLearn&am=9.99&cu=INR" alt="UPI QR Code" class="upi-qr">
+                        <p class="upi-amount">Pay ₹830 (~$9.99)</p>
+                    </div>
+                </div>
+                
+                <div class="upi-instructions">
+                    <h3>How to Pay</h3>
+                    <ol>
+                        <li>Open your UPI app (Google Pay, PhonePe, Paytm)</li>
+                        <li>Scan the QR code above</li>
+                        <li>Enter amount and confirm payment</li>
+                        <li>Screenshot the payment receipt</li>
+                        <li>Email us the receipt</li>
+                    </ol>
+                    
+                    <div class="upi-alternative">
+                        <h4>Or pay to UPI ID:</h4>
+                        <p class="upi-id">demo@upi</p>
+                        <p class="upi-note">After payment, email receipt to: tejaskrshna@gmail.com</p>
+                    </div>
                 </div>
             </div>
         </div>
